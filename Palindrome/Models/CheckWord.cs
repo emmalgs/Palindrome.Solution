@@ -7,22 +7,13 @@ namespace Palindrome.Models
   {
     public bool CheckWord(string word)
     {
-      char[] wordArray = word.ToUpper().ToCharArray();
-      char[] compare = wordArray;
+      word = word.Replace(" ", String.Empty).ToUpper();
+      char[] compare = word.ToCharArray();
       Array.Reverse( compare );
-      bool flag = false;
-      for (int i = 0; i < wordArray.Length; i++)
-      {
-        if (wordArray[i] != compare[i])
-        {
-          flag = false;
-        }
-        else
-        {
-          flag = true;
-        }
-      }
-      return flag;
+      string c = string.Join("", compare);
+      Console.WriteLine(c);
+      bool answer = word.Equals(c);
+      return answer;
     }
   }
 }
